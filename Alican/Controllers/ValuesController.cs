@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Alican.Middleware;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Alican.Controllers
@@ -15,6 +16,7 @@ namespace Alican.Controllers
             return Ok(new {Message="Api is working"});
         }
         [HttpPost]
+        [Log]
         public IActionResult Create(ProductDto productDto)
         {
             return Ok();
