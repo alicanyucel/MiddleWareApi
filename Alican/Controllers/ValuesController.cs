@@ -8,8 +8,10 @@ namespace Alican.Controllers
     public class ValuesController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Test()
         {
+            var context = HttpContext;
+            throw new ArgumentException("hata");
             return Ok(new {Message="Api is working"});
         }
     }
