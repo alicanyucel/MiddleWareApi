@@ -1,3 +1,5 @@
+using static System.Net.Mime.MediaTypeNames;
+
 namespace Alican;
 
 public class Program
@@ -14,7 +16,12 @@ public class Program
         app.MapGet("/", () => "Hello World!");
         app.UseAuthorization();
         app.UseAuthentication();
+      
         app.MapControllers();
+        app.Use(async(context, next) =>
+        {
+            await next(context);
+        });
         app.Run();
     }
 }
