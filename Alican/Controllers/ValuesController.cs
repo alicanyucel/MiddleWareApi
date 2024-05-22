@@ -1,4 +1,5 @@
 ﻿using Alican.Middleware;
+using Alican.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,7 @@ namespace Alican.Controllers
     public class ValuesController : ControllerBase
     {
         [HttpGet("{age}")] // route params
+        [MyAuthorize]
         public IActionResult Test(string age)
         {
             var context = HttpContext;
